@@ -17,6 +17,14 @@ def excepthook(exc_type, exc_value, exc_tb):
 sys.excepthook = excepthook
 
 
+def getRandomColor():
+    red = randint(0, 255)
+    green = randint(0, 255)
+    blue = randint(0, 255)
+
+    return QColor(red, green, blue)
+
+
 class MyWidget(QWidget):
     def __init__(self):
         super().__init__()
@@ -37,7 +45,7 @@ class MyWidget(QWidget):
         self.repaint()
 
     def draw_flag(self, qp):
-        qp.setPen(QPen(QColor(255, 255, 0)))
+        qp.setPen(QPen(getRandomColor()))
         x = randint(10, 200)
         qp.drawEllipse(150, 100, x, x)
 
